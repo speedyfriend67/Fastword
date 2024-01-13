@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Display</title>
+  <style>
+    #wordBox {
+      width: 200px;
+      height: 100px;
+      background-color: white;
+      border: 1px solid black;
+      text-align: center;
+      line-height: 100px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="wordBox" onclick="showWords()">Click me</div>
+<button onclick="regenerateWords()">Regenerate</button>
+
+<script>
+  const wordsList = ['Apple', 'Banana', 'Orange', 'Grapes', 'Pineapple'];
+
+  function showWords() {
+    const wordBox = document.getElementById('wordBox');
+    const randomIndex = Math.floor(Math.random() * wordsList.length);
+    wordBox.textContent = wordsList[randomIndex];
+  }
+
+  function regenerateWords() {
+    showWords()
+  }
+</script>
+
+</body>
+</html>
