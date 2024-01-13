@@ -27,25 +27,27 @@
       text-align: center;
       line-height: 100px;
       cursor: pointer;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+      border-radius: 15px;
     }
 
     #recreateButton {
       transition: transform 0.5s ease-in-out;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
 
 <div id="container">
-  <div id="wordBox" onclick="showWords()">Click me</div>
-  <button id="recreateButton" onclick="regenerate()">Regenerate</button>
+  <div id="wordBox" onclick="regenerate()">Click me</div>
+  <button id="recreateButton" onclick="rotateButton()">Regenerate</button>
 </div>
 
 <script>
   const wordsList = ['Apple', 'Banana', 'Orange', 'Grapes', 'Pineapple'];
 
-  function showWords() {
+  function regenerate() {
     const wordBox = document.getElementById('wordBox');
     const recreateButton = document.getElementById('recreateButton');
 
@@ -59,10 +61,6 @@
     setTimeout(() => {
       wordBox.style.transform = 'translateY(0)';
     }, 500);
-  }
-
-  function regenerate() {
-    showWords(); // Reusing the same function for regeneration
   }
 
   function rotateButton() {
