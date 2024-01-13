@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Word Display</title>
+  <title>Animated Word Display</title>
   <style>
     #wordBox {
       width: 200px;
@@ -13,25 +13,48 @@
       text-align: center;
       line-height: 100px;
       cursor: pointer;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    #recreateButton {
+      transition: transform 0.5s ease-in-out;
     }
   </style>
 </head>
 <body>
 
 <div id="wordBox" onclick="showWords()">Click me</div>
-<button onclick="regenerateWords()">Regenerate</button>
+<button id="recreateButton" onclick="rotateButton()">Regenerate</button>
 
 <script>
   const wordsList = ['Apple', 'Banana', 'Orange', 'Grapes', 'Pineapple'];
 
   function showWords() {
     const wordBox = document.getElementById('wordBox');
+    const recreateButton = document.getElementById('recreateButton');
+
     const randomIndex = Math.floor(Math.random() * wordsList.length);
     wordBox.textContent = wordsList[randomIndex];
+
+    // Move the box downwards
+    wordBox.style.transform = 'translateY(20px)';
+
+    // Reset transformation after a delay
+    setTimeout(() => {
+      wordBox.style.transform = 'translateY(0)';
+    }, 500);
   }
 
-  function regenerateWords() {
-    showWords()
+  function rotateButton() {
+    const recreateButton = document.getElementById('recreateButton');
+
+    // Rotate the button
+    recreateButton.style.transform = 'rotate(360deg)';
+    
+    // Reset rotation after a delay
+    setTimeout(() => {
+      recreateButton.style.transform = 'rotate(0deg)';
+    }, 500);
   }
 </script>
 
